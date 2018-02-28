@@ -1,0 +1,41 @@
+<% include ../partials/header.ejs %>
+
+<header id="courts-header">
+    <div id="courts-header-container">
+        <h1 id="courts-title">Welcome To Hoopr</h1>
+        <div id="create-court">
+        <button><a href="/courts/new">Create A Court</a></button>
+        </div>
+    </div>
+</header>
+<div class="eighty-wrapper">
+<section id="courts">
+<% if(notFound !== undefined){ %>
+    <p><%= notFound %></p>
+<% } %>    
+<% courts.forEach(function(court){ %>
+    <div class="court">
+        <h2 class="courts-name"><em><%= court.name %></em></h2>
+            <% if(court.image){ %>
+        <a href="/courts/<%= court.id %>"><img src="<%= court.image %>" alt="sad"></a> 
+            <% } %>
+        <% var address = function(street, city, state, zip){ %>
+            
+            <% var res = encodeURI(street + " " + city + " " + state + " " + zip); %>
+            <% return res %>
+        <% } %>
+        
+       
+            <h2 class="courts-address"><%= court.address.street %></br>
+                <%= court.address.city %>, <%= court.address.state %></br>
+                <%= court.address.zip %>
+            </h2>
+        
+        <h2 class="courts-desc"><%= court.desc %></h2>
+        <a href="/courts/<%= court._id %>" id="info">More Info</a>
+    </div>
+<% }) %>
+</section>
+
+</div>
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,45 @@
+<% include ../partials/header.ejs %>
+<h1>GAMES!!!</h1>
+
+<%= success %>
+<%= error %>
+<button><a href="/courts/<%= court._id %>/games/new">Create A Game</a></button>
+
+<section class = "games">
+   <h3>Games</h3>
+   
+<% court.games.forEach(function(game){ %>
+    <p><%= game.author.username %></p>
+    <p><%= game.court.name %></p>
+    <p><%= game.name %></p>
+    <p><%= game.date.day %></p>
+    <p><%= game.date.month %></p>
+    <p><%= game.date.year %></p>
+    <div class = "players-border">
+        <h4>Players</h4>
+    <% game.players.forEach(function(player){ %>
+       
+        <form>
+            <input style="display:none" type="text" name="player" value="<%= player.id %>">
+        </form> 
+        <p><%= player.username %></p> 
+    <% }) %>
+    </div>
+    <button><a href="/courts/<%= court._id %>/games/<%= game._id %>/edit">Edit</a></button>
+    <form action="/courts/<%= court._id %>/games/<%= game._id %>/players" method="POST">
+        <input style="display:none" type="text" name="game" value="<%= game._id %>">
+        <button>JOIN</button>
+    </form>
+    <form action="/courts/<%= court._id %>/games/<%= game._id %>/players/leave" method="POST">
+        <input style="display:none" type="text" name="game" value="<%= game._id %>">
+        <button>LEAVE GAME</button>
+    </form>
+    
+        <form action="/courts/<%= court._id %>/games/<%= game._id %>?_method=DELETE" method="POST">
+        <button>DELETE</button>
+    </form>
+<% }) %>
+
+</section>
+<a href="/courts">Courts</a>
+<% include ../partials/footer.ejs %>

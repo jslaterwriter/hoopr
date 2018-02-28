@@ -1,0 +1,29 @@
+<% include ../partials/header.ejs %>
+
+
+<section id="games">
+    <form id="new-game" action="/courts/<%= court._id %>/games" method="POST">
+        <h1>Add A Game to <%= court.name %></h1>
+        <p>Date:</p>
+        <input id="new-date-month" type="number" name="game[date][month]" placeholder="mm" min="1" max="12" required>
+        <input id="new-date-day" type="number" name="game[date][day]" placeholder="dd" min="1" max="31" required>
+        <input id="new-date-year" type="number" name="game[date][year]" placeholder="yyyy" max="9999" required>
+        <p>Time</p>
+        <input type="number" name="game[time][start][hour]" min="1" max="12" required><span>:</span>
+        <input type="number" name="game[time][start][minute]" min="0" max="59" required>
+        <select name="game[time][start][period]" required>
+            <option>AM</option>
+            <option>PM</option>
+        </select> 
+        <p>to</p>
+        <input type="number" name="game[time][end][hour]" min="1" max="12" required><span>:</span>
+        <input type="number" name="game[time][end][minute]" min="0" max="59" required>
+        <select name="game[time][end][period]" required>
+            <option>AM</option>
+            <option>PM</option>
+        </select>  
+        <button>Submit</button>
+    </form>
+</section>
+<script type="text/javascript" src="/scripts/newGame.js"></script>
+<% include ../partials/footer.ejs %>

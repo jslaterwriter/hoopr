@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hoopr</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/landing.css">
+        <link href="https://fonts.googleapis.com/css?family=Anton|Graduate|Patua+One" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    </head>
+     <body>
+<nav class="navbar">
+    <form id="search" action="/courts" method="GET">
+        <input type="text" name="search" placeholder="Search Courts By Address">
+        <input type="submit" value="Search">
+    </form>
+</nav>
+   
+
+<header id="welcome" >
+    <div id="circle-top">
+        <h1 id="title">HOOPR</h1>
+        
+    </div>
+    <div id="circle-bottom">
+        <h2>Who's got next?</h2>
+    </div>
+    <div id="circle-inner-top"></div>
+    <div id="circle-inner-bottom"></div>
+</header>
+
+<section id="login">
+    <h2>Login</h2>
+    <form action="/login" method="post">
+        
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+     
+        <input type="submit" value="Log In">
+    </form>
+    <button><a href="/register">SIGN UP!</a></button>
+</section>
+
+<script type="text/javascript" src="/scripts/landing.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<% include ../partials/header.ejs %>
+
+<section id="games">
+    <form id="new-game" action="/courts/<%= court._id %>/games/<%= game._id %>/?_method=PUT" method="POST">
+        <h1>Edit Game</h1>
+        <p>Date:</p>
+        <input id="new-date-month" type="number" name="game[date][month]" value="<%= game.date.month %>">
+        <input id="new-date-day" type="number" name="game[date][day]" value="<%= game.date.day %>">
+        <input id="new-date-year" type="number" name="game[date][year]" value="<%= game.date.year %>">
+        <p>Time</p>
+        <input type="number" name="game[time][start][hour]" value = "<%= game.time.start.hour %>" required><span>:</span>
+        <input type="number" name="game[time][start][minute]" value = "<%= game.time.start.minute %>"  required>
+        <select name="game[time][start][period]" value = "<%= game.time.end.period %>" required>
+            <option>AM</option>
+            <option>PM</option>
+        </select> 
+        <p>to</p>
+        <input type="number" name="game[time][end][hour]" value = "<%= game.time.end.hour %>" required><span>:</span>
+        <input type="number" name="game[time][end][minute]" value = "<%= game.time.end.hour %>" required>
+        <select name="game[time][end][period]" value = "<%= game.time.end.period %>" required>
+            <option>AM</option>
+            <option>PM</option>
+        </select>  
+        <button>Submit</button>
+        
+    </form>
+<script type="text/javascript" src="/scripts/newGame.js"></script>
+</section>
+<% include ../partials/footer.ejs %>

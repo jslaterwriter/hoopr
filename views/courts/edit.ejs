@@ -1,0 +1,38 @@
+<% include ../partials/header.ejs %>
+
+<section id="court-form">
+
+
+<form action="/courts/<%= court._id %>/?_method=PUT" method="POST">
+    <h1>Edit <%= court.name %></h1>
+    <p>Name:</p>
+    <input class="single" type="text" name="court[name]" value="<%= court.name %>">
+    <p>Description:</p>
+    <input class="single" type="text" name="court[desc]" value="<%= court.desc %>">
+    <p>Address:</p>
+    <input type="text" name="court[address][street]" value="<%= court.address.street %>">
+    <input type="text" name="court[address][city]" value="<%= court.address.city %>"></br>
+    <input type="text" name="court[address][state]" value="<%= court.address.state %>">
+    <input type="text" name="court[address][zip]" value="<%= court.address.zip %>">
+    <p>HOURS:</p>
+    <p>Open:</p>
+    <input type="number" name="court[hours][open][hour]" min="1" max="12" value="<%= court.hours.open.hour %>"> <span>:</span>
+    <input type="number" name="court[hours][open][minute]" min="1" max="59" value="<%= court.hours.open.minute %>">
+    <select name="court[hours][open][period]" value="<%= court.hours.open.period %>">
+        <option>AM</option>
+        <option>PM</option>
+    </select>
+    
+    <p>Close:</p>
+    <input type="number" name="court[hours][close][hour]" min="1" max="12" value="<%= court.hours.close.hour %>"> <span>:</span>
+    <input type="number" name="court[hours][close][minute]" min="1" max="59" value="<%= court.hours.close.minute %>">
+    <select name="court[hours][close][period]" value="<%= court.hours.close.period %>">
+        <option>AM</option>
+        <option>PM</option>
+    </select>
+    </br>
+    <button id="edit-court-button">Submit</button>
+    
+</form>
+</section>
+<% include ../partials/footer.ejs %>

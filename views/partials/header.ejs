@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hoopr</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Anton|Graduate|Patua+One" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    </head>
+    <body>
+<nav id="navbar">
+    <div id="logo">
+        <p><a href="/courts">HOOPR LOGO</a></p>
+         <div id="gap"></div>
+    </div>
+   
+    <form action="/courts" method="GET">
+        <div id="search">
+            <input type="text" name="search" placeholder="Search Courts By Address...">
+            <button class="icon"><i class="fas fa-search"></i></button>
+            <button><a href="/courts">Explore</a></button>
+        </div>
+    </form>
+    <div id="authenticate">
+        <% if(!currentUser){ %>
+            <button><a href="/register">Sign Up</a></button>
+            <button><a href="/Login">Login</a></button>
+        <% } else {%>
+            <p style="color:white; font-size:12px; padding:10px">Signed In As: <%= currentUser.username %></p>
+                <button class="login"><a href="/logout">Log Out</a></button>
+        <% } %>
+        <button id="display-search-button"><i class="fas fa-search"  id="display-search"></i></button>
+    </div>
+    
+</nav>
+<form id="mobile-search">
+    <input type="text" name="search" placeholder="Search Courts By Address...">
+    <button id="mobile-search-submit"><i class="fas fa-search"></i></button>
+    <span id="mobile-search-close">X</span>
+</form>
+   

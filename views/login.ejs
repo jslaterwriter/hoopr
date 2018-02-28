@@ -1,0 +1,19 @@
+<% include partials/header %>
+
+<h2 class="message"><%= error %></h2>
+
+
+<header id="login">
+    
+    <form action="/login" method="post">
+        <h1>Login</h1>
+        <div id="login-input">
+        <input type="text" name="username" placeholder="username"></br>
+        
+        <input type="password" name="password" placeholder="password"></br>
+     
+        <button class="submit">Login</button>
+        </div>
+    </form>
+</header>
+<% include partials/footer %>
